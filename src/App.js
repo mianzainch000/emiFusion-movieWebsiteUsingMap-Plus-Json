@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Header } from "./Components/Header";
+import { Movie } from "./Components/Movie/Movie";
+import Moviedetail from "./Components/MovieJsonFile/Moviedetail.json";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="main">
+        {Moviedetail.map((element) => (
+          <Movie
+            poster={element.Poster}
+            title={element.Title}
+            year={element.Year}
+          />
+        ))}
+      </div>
     </div>
   );
 }
